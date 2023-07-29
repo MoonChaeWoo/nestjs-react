@@ -12,6 +12,9 @@ module.exports = {
       },
       backgroundImage: {
         'loginright': "url('./static/img/login-Right.jpg)",
+      },
+      height: {
+        '51rm': '51.7rem',
       }
     },
   },

@@ -41,7 +41,7 @@ export default function SideMenu(){
                             </NavLink>
                         </ol>
                     </div>
-                    <div className="content-center justify-center bottom-0 fixed h-24 flex w-screen bg-black text-white  flex-wrap">
+                    <div className="content-center justify-center bottom-0 fixed h-24 flex w-screen bg-black text-white z-50 flex-wrap">
                         Switch Project React & NestJs
                     </div>
                 </div>
