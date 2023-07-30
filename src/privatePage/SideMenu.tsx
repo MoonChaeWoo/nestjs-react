@@ -18,7 +18,6 @@ export default function SideMenu(){
                                 <li className="flex cursor-pointer focus:text-pink-600 m-5">
                                     <div className="hover:animate-bounce flex items-center w-fit">
                                         <img src={dashboardImg} className="w-11"/>
-                                        {/* <NavLink to={}></NavLink> */}
                                         <div className="w-full">Dashboard</div>
                                     </div>
                                 </li>

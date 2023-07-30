@@ -39,9 +39,9 @@ const postContentView = (postData : PostParam) => {
 export default function Posts(){
     const dispatch = useAppDispatch();
 
-    const postData = useAppSelector(state => state.post.data);
+    const { loading, complete, data, error, message } = useAppSelector(state => state.post);
 
-    const postItemLi = postData?.map(v => postContentView(v));
+    const postItemLi = data?.map(v => postContentView(v));
     useEffect(() => {
         dispatch(getAllPostAsyncAxios(null));
       }, []);
@@ -49,8 +49,7 @@ export default function Posts(){
     return(
         <div className='h-51rm p-2.5 overflow-y-auto box-content'>
             <ul>
-                {postItemLi}
-                {/* {postLoading()} */}
+                {loading ? postLoading() : complete ? postItemLi : <div> {message} </div>}
             </ul>
         </div>
     )

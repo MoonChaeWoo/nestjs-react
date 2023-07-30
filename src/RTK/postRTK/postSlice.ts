@@ -3,16 +3,18 @@ import { getAllPostAsyncAxios, PostParam } from "./postAsyncThunk";
 
 type PostResult = {
     loading: boolean;
-    finish: boolean;
-    error: string | null;
+    complete: boolean;
+    error: boolean;
     data : PostParam[] | null;
+    message : string | null;
 }
 
 const initialState : PostResult = {
     loading: false,
-    finish: false,
-    error: null,
-    data : null
+    complete: false,
+    error: false,
+    data : null,
+    message : null
 };
 
 export const postSlice = createSlice({
@@ -25,13 +27,16 @@ export const postSlice = createSlice({
         builder
             .addCase(getAllPostAsyncAxios.pending, state => {
                 state.loading = true;
+                state.complete = false;
             })
             .addCase(getAllPostAsyncAxios.fulfilled, (state, action) => {
-               state.finish = true;
+               state.loading = false;
+               state.complete = true;
                state.data = action.payload;
             })
             .addCase(getAllPostAsyncAxios.rejected, (state, action) => {
-                state.error = action.error.toString(); 
+                state.error = true;
+                state.message = action.error.toString(); 
             });
     }
 });
