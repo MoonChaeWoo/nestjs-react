@@ -38,7 +38,7 @@ export const loginSlice = createSlice({
             })
             .addCase(loginAxios.rejected, (state, action) => {
                 state.loading = false;
-                state.error = action.error.message || '로그인 실패하였습니다';
+                state.error = action.error.message || null;
             });
     }
 });

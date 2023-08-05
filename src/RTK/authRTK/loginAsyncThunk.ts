@@ -15,7 +15,8 @@ export const loginAxios = createAsyncThunk( 'auth/loginCertification', async(use
         }else{
             return false
         }
-    }catch(error){
+    }catch(e){
+        console.log(`react =====> ${JSON.stringify(e)}`);
         throw new Error('로그인 실패하였습니다');
     }
 });
