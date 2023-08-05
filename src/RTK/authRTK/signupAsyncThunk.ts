@@ -16,14 +16,11 @@ function getErrorMessage(error: unknown) {
 
 export const signupAxios = createAsyncThunk(
   "SignUp",
-  async (newUserData: signup, { rejectWithValue }) => {
-    try {
-      const response = await axios.post("auth/postSignUp", newUserData, {
-        withCredentials: true,
-      });
-      return response.data;
-    } catch (error) {
-      return rejectWithValue(getErrorMessage(error));
-    }
+  async (newUserData: signup) => {
+    const response = await axios.post("auth/postSignUp", newUserData, {
+      withCredentials: true,
+    });
+    console.log("responsedata:" + response);
+    return response;
   }
 );
